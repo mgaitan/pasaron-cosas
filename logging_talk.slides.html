@@ -13202,7 +13202,51 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Logging-as-a-Hero">Logging as a Hero<a class="anchor-link" href="#Logging-as-a-Hero">&#182;</a></h1><p>(saving lives of defenseless people)</p>
+<h1 id="Pasaron-cosas:-logging-efectivo-para-saber-qu&#233;-sucedi&#243;">Pasaron cosas: logging efectivo para saber qu&#233; sucedi&#243;<a class="anchor-link" href="#Pasaron-cosas:-logging-efectivo-para-saber-qu&#233;-sucedi&#243;">&#182;</a></h1><p><br>
+<br>
+<br></p>
+<center><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/whatsapp/238/man-shrugging-type-1-2_1f937-1f3fb-200d-2642-fe0f.png" /> </center><p><br>
+<br>
+<br></p>
+<center><h3> PyConAr 2020</h3></center><center>Martín Gaitán |  @tin_nqn_</center>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Sobre-m&#237;">Sobre m&#237;<a class="anchor-link" href="#Sobre-m&#237;">&#182;</a></h2><ul>
+<li>Python, locro y paternidad</li>
+<li>Soy ingeniero y docente, laburo en ShipHero</li>
+<li>Vivo en Anisacate, Córdoba</li>
+<li>Me llevo bien con mis hermanos</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/2355719/97139283-edca5600-1738-11eb-8238-3c6b030092ae.png" alt="image"></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Agenda">Agenda<a class="anchor-link" href="#Agenda">&#182;</a></h2><ul>
+<li>¿Para qué loggear?</li>
+<li>Logging 101</li>
+<li>Structlog</li>
+<li>Buenas prácticas</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#191;Logging?-&#191;Para-qu&#233;?">&#191;Logging? &#191;Para qu&#233;?<a class="anchor-link" href="#&#191;Logging?-&#191;Para-qu&#233;?">&#182;</a></h2><ul>
+<li>Planificar en el presente para tener, en el futuro, información útil de ejecuciones (pasadas).</li>
+<li>Nos permiten debuggear un problema específico, obtener información de uso, trazabilidad, etc.  </li>
+<li>Y también cuantificar para priorizar tareas</li>
+</ul>
 
 </div>
 </div>
@@ -13213,26 +13257,53 @@ a.anchor-link {
 <h2 id="Logging-101">Logging 101<a class="anchor-link" href="#Logging-101">&#182;</a></h2>
 </div>
 </div>
-</div>
+</div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Few short definitions</p>
 <ul>
-<li>Loggers: expose the interface that application code directly uses.</li>
-<li>Handlers: send the log records (created by loggers) to the appropriate destination (stdout, file, network, etc.)  </li>
-<li>Filters: exclude (or transform) records </li>
-<li>Formatters: layout of log records in the final output</li>
+<li>Logger: expone la interfaz que se usa desde nuestro código. </li>
 </ul>
 
 </div>
 </div>
-</div></section><section>
+</div></div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="https://user-images.githubusercontent.com/2355719/91468196-07017400-e868-11ea-9af8-f99f112e8ac8.png" alt="image"></p>
+<ul>
+<li>Handler: envía los <em>log records</em> (registros) (creados desde loggers) al destino apropiado (stdout, archivo, red, etc.)  </li>
+</ul>
 
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Filter: excluye o transforma registros.</li>
+</ul>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Formatter: plantilla para la representación de salida de los registros. </li>
+</ul>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center>
+<img width="445" heigth="267" src="https://user-images.githubusercontent.com/2355719/91468196-07017400-e868-11ea-9af8-f99f112e8ac8.png">
+</center>
 </div>
 </div>
 </div><aside class="notes">
@@ -13240,22 +13311,47 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Notes:</p>
+<p>Notas:</p>
 <ul>
-<li>Loggers are instances of <code>logging.Logger</code> but never instantiated directly. </li>
-<li>A logger could have several handlers and filters attached.</li>
-<li>A handler also may have its own filters and its own level</li>
-<li>A formatter is attached to the handler</li>
+<li>Los <em>logger</em> son instancias de <code>logging.Logger</code>. Se instancian via <code>logging.getLogger()</code> </li>
+<li>Un <em>logger</em> puede tener varios <em>handlers</em> y <em>filters</em> asociados. </li>
+<li>Cada <em>handler</em> también puede tener su propio nivel y filtros. </li>
+<li>Un <em>formatter</em> está relacionado sólo con un <em>handler</em></li>
 </ul>
 
 </div>
 </div>
 </div>
-</aside></section><section>
+</aside></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Logger's-level-and-Handler's-level">Logger's level and Handler's level<a class="anchor-link" href="#Logger's-level-and-Handler's-level">&#182;</a></h3><p>The <strong>logger</strong>'s level determines the minimal <strong>record</strong>'s level needed</p>
+<p><img src="https://i.imgflip.com/4js04z.jpg" alt=""></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Cada registros,  los loggers y los handlers tiene asociado un <strong>nivel de severidad</strong>,</p>
+<p><img src="https://user-images.githubusercontent.com/2355719/91371176-a8e07c80-e7e6-11ea-8773-0674f2e7a943.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Existe un método que emite registros con su respectivo nivel <code>logger.debug(), logger.info()...</code></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Y los logger tienen un <strong>nivel efectivo</strong> necesario.</p>
 
 </div>
 </div>
@@ -13278,9 +13374,8 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># getLogger is a factory function. With no argument return the root logger instance, with no config</span>
-<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span>    
-<span class="n">logger</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">root</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span>    
+<span class="n">root</span>
 </pre></div>
 
     </div>
@@ -13307,34 +13402,34 @@ a.anchor-link {
 </div>
 </div>
 
-</div></section><section>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The default level of root logger is WARNING</p>
+<p>El logger por defecto "root" tiene nivel mínimo <code>WARNING</code></p>
 
 </div>
 </div>
-</div><div class="fragment">
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Hi Shiphero&quot;</span><span class="p">)</span>     <span class="c1"># info &lt; warning =&gt; ignored</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">root</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Hola PyConAr&quot;</span><span class="p">)</span>     <span class="c1"># info &lt; warning =&gt; ignorado</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-</div></div><div class="fragment">
+</div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;I said hi!&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">root</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Dije hola PyConAr!&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13351,7 +13446,7 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>I said hi!
+<pre>Dije hola PyConAr!
 </pre>
 </div>
 </div>
@@ -13363,33 +13458,37 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="https://user-images.githubusercontent.com/2355719/91371176-a8e07c80-e7e6-11ea-8773-0674f2e7a943.png" alt=""></p>
-<p>Note: <code>logger.exception()</code> creates an ERROR + traceback's info</p>
-<p>Note2: in our code, any message &gt; WARNING is also sent to <strong>Sentry</strong></p>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>But also the <strong>Handler</strong> has a minimal level</p>
+<p>Pero también los <strong>Handler</strong> tienen nivel</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
-<span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">otro_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;ejemplo&quot;</span><span class="p">)</span>    
+<span class="n">otro_logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>     <span class="c1"># nivel del logger</span>
 
 <span class="n">sh</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
-<span class="n">sh</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">)</span>
+<span class="n">sh</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">)</span>           <span class="c1"># nivel del handler</span>
 
-<span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">sh</span><span class="p">)</span>
+<span class="n">otro_logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">sh</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># alcanza el nivel del logger pero no el del handler</span>
+<span class="n">otro_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Te la debo, no estoy en tema&quot;</span><span class="p">)</span>    <span class="c1"># el registro se crea, pero no se maneja en el handler  </span>
 </pre></div>
 
     </div>
@@ -13399,11 +13498,199 @@ a.anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">otro_logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;veniamos bien, pero pasaron cosas&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>veniamos bien, pero pasaron cosas
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Recordemos que un logger puede tener <strong>varios handlers</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fh</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="s1">&#39;charla.log&#39;</span><span class="p">)</span>
+<span class="n">fh</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+
+<span class="c1"># le agregamos este nuevo Handler al logger que ya teniamos</span>
+<span class="n">otro_logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">fh</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># esto no va a stdout pero sí al archivo</span>
+<span class="n">otro_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;deberían tener angustia de tomar la decisión, querido Rey, de separarse de España&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>cat charla.log
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>deberían tener angustia de tomar la decisión, querido Rey, de separarse de España
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Nombres-y-propagaci&#243;n">Nombres y propagaci&#243;n<a class="anchor-link" href="#Nombres-y-propagaci&#243;n">&#182;</a></h3><ul>
+<li>Cuando instanciamos un logger con <code>getLogger</code> podemos darle un nombre </li>
+<li>El nombre determina el <em>namespace</em> (separado por puntos). </li>
+<li>Logs loggers "hijos" heredan la configuración (y pueden sobrecargarla)</li>
+</ul>
+<p>La convención es usar la jerarquía completa del módulo</p>
+<div class="highlight"><pre><span></span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># reusamos la config del namespace &quot;ejemplo&quot; que tenia `otro_logger`</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;ejemplo.hijo&#39;</span><span class="p">)</span>     
+<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Hay lugares donde falta el agua, y lugares donde sobra&quot;</span><span class="p">)</span>   
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># this satisfies the logger&#39;s level but no the handler&#39;s one</span>
-<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;will this be logged?&quot;</span><span class="p">)</span>    <span class="c1"># the record is created, but no handled  </span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>cat charla.log
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>deberían tener angustia de tomar la decisión, querido Rey, de separarse de España
+Hay lugares donde falta el agua, y lugares donde sobra
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>propagate=True</code> pasa el registro a "loggers padres".</p>
+
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Filtros">Filtros<a class="anchor-link" href="#Filtros">&#182;</a></h2><p>Transformar o descartar registros</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">ShortMsgFilter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Filter</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">record</span><span class="o">.</span><span class="n">msg</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">10</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    
+<span class="n">logger</span><span class="o">.</span><span class="n">addFilter</span><span class="p">(</span><span class="n">ShortMsgFilter</span><span class="p">())</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;hola&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13416,7 +13703,7 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;ok, you got this&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;buscaremos otros jueces que nos representen&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13433,137 +13720,7 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>ok, you got this
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>A logger could have <strong>several handlers</strong>, each one with a different level</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fh</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="s1">&#39;example.log&#39;</span><span class="p">)</span>
-<span class="n">fh</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
-
-<span class="c1"># attach a filehandler to the same logger</span>
-<span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">fh</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;no stdout but file&quot;</span><span class="p">)</span>   
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>cat example.log 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>no stdout but file
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Logger's-name-and-propagation">Logger's name and propagation<a class="anchor-link" href="#Logger's-name-and-propagation">&#182;</a></h3><ul>
-<li>When we instantiate a logger, we give an arbitrary name</li>
-<li>The name determines the namespace (using dots as separators)</li>
-<li>Child's logger inherits its parent's configuration (and may overload it)</li>
-</ul>
-<p>The convention is to use a module-level logger named to track the package/module hierarchy</p>
-
-<pre><code>logger = logging.getLogger(__name__)</code></pre>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;example.custom&#39;</span><span class="p">)</span>
-<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;another line&quot;</span><span class="p">)</span>    <span class="c1"># reuse its parent&#39;s (&quot;example&quot;) level and handlers</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div></section></section><section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>cat example.log
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>no stdout but file
-another line
+<pre>buscaremos otros jueces que nos representen
 </pre>
 </div>
 </div>
@@ -13575,24 +13732,56 @@ another line
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Which-(and-where)-is-our-config?">Which (and where) is our config?<a class="anchor-link" href="#Which-(and-where)-is-our-config?">&#182;</a></h2><p>We have a package at <code>applogging/</code></p>
-<ul>
-<li><code>shiphero_app.application</code> imports <code>settings</code></li>
-<li><code>settings</code> calls applogging's <code>config_logging()</code> </li>
-<li>That function setups stdlib's logging (and also <em>structlog</em>)</li>
-</ul>
+<h2 id="&#191;C&#243;mo-configuramos?">&#191;C&#243;mo configuramos?<a class="anchor-link" href="#&#191;C&#243;mo-configuramos?">&#182;</a></h2><p><img src="https://i.imgflip.com/4ju4ym.jpg" alt=""></p>
 
 </div>
 </div>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">applogging.config</span> <span class="kn">import</span> <span class="n">root_config</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">logging.config</span>
 
-<span class="n">root_config</span><span class="p">[</span><span class="s2">&quot;handlers&quot;</span><span class="p">]</span>
+<span class="n">DEFAULT_LOGGING</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;disable_existing_loggers&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  
+    <span class="s1">&#39;loggers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;ejemplo&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;DEBUG&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;console_handler&quot;</span><span class="p">]</span>
+        <span class="p">},</span>
+    <span class="p">},</span> 
+    <span class="s2">&quot;handlers&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;console_handler&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;DEBUG&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;formatter&#39;</span><span class="p">:</span> <span class="s1">&#39;info&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;logging.StreamHandler&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;formatters&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;info&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> [</span><span class="si">%(levelname)s</span><span class="s2">]  </span><span class="si">%(message)s</span><span class="s2">&quot;</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dictConfig</span><span class="p">(</span><span class="n">DEFAULT_LOGGING</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;ejemplo&quot;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;No logramos lograr ese logro&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13602,201 +13791,6 @@ another line
 <div class="output_wrapper">
 <div class="output">
 
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[7]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{&#39;default&#39;: {&#39;level&#39;: &#39;INFO&#39;,
-  &#39;class&#39;: &#39;logging.StreamHandler&#39;,
-  &#39;formatter&#39;: &#39;short&#39;,
-  &#39;filters&#39;: [&#39;request&#39;]},
- &#39;database&#39;: {&#39;level&#39;: &#39;INFO&#39;,
-  &#39;class&#39;: &#39;applogging.handlers.DatabaseHandler&#39;,
-  &#39;formatter&#39;: &#39;short&#39;,
-  &#39;filters&#39;: [&#39;request&#39;]}}</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># loggers </span>
-<span class="n">root_config</span><span class="p">[</span><span class="s2">&quot;loggers&quot;</span><span class="p">]</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[30]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{&#39;&#39;: {&#39;handlers&#39;: [&#39;default&#39;],
-  &#39;level&#39;: &#39;WARNING&#39;,
-  &#39;propagate&#39;: True,
-  &#39;filters&#39;: [&#39;request&#39;]},
- &#39;geerpc&#39;: {&#39;level&#39;: &#39;INFO&#39;},
- &#39;werkzeug&#39;: {&#39;level&#39;: &#39;INFO&#39;},
- &#39;sixriver&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.services.picking.sixriver_picker&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.views.sixriver_picking&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;geerpc-core&#39;: {&#39;level&#39;: &#39;INFO&#39;},
- &#39;shiphero.bulkship&#39;: {&#39;level&#39;: &#39;INFO&#39;},
- &#39;shiphero.carriers.async_quote&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero.inventory.uploader&#39;: {&#39;level&#39;: &#39;INFO&#39;},
- &#39;shiphero.core.product.uploader&#39;: {&#39;level&#39;: &#39;INFO&#39;},
- &#39;shiphero_app.core.inventory&#39;: {&#39;level&#39;: &#39;INFO&#39;},
- &#39;shiphero_app.core.order&#39;: {&#39;level&#39;: &#39;INFO&#39;},
- &#39;shiphero_app.core.shipment.models&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.core.warehouse&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.core.channel_advisor&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.services.sales_channel&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.services.returns&#39;: {&#39;level&#39;: &#39;INFO&#39;, &#39;handlers&#39;: [&#39;database&#39;]},
- &#39;shiphero_app.services.shipment&#39;: {&#39;level&#39;: &#39;DEBUG&#39;,
-  &#39;handlers&#39;: [&#39;database&#39;]},
- &#39;shiphero_app.services.inventory&#39;: {&#39;level&#39;: &#39;INFO&#39;},
- &#39;shiphero_app.modules.tasks&#39;: {&#39;level&#39;: &#39;INFO&#39;},
- &#39;shiphero_app.modules.queue_workers&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.modules.labels.models&#39;: {&#39;level&#39;: &#39;INFO&#39;},
- &#39;shiphero_app.services.asset&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.core.rules.allocation&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.utils.channels&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.utils.sqs_queue&#39;: {&#39;level&#39;: &#39;INFO&#39;},
- &#39;shiphero_app.services.pending_shipments&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.core.woocommerce&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.core.shopify&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.modules.edit_order&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.services.stores.amazon.data_policy&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.modules.carriers&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.modules.labels.manifest&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.billing.tallying.bill_tallier&#39;: {&#39;level&#39;: &#39;INFO&#39;},
- &#39;shiphero_app.billing.tallying.base&#39;: {&#39;level&#39;: &#39;INFO&#39;},
- &#39;shiphero_app.billing.views.billing_jobs&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.billing.jobs.export_bill_job&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.billing.services.bill_exporting&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.billing.services.bill_export_uploader&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.billing.services.bill_serializer&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.views.jobs&#39;: {&#39;level&#39;: &#39;INFO&#39;},
- &#39;shiphero_app.jobs&#39;: {&#39;level&#39;: &#39;INFO&#39;},
- &#39;shiphero_app.external_requests&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.event_handlers.inventory_updater&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;MANIFEST-TASKS&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;AUTOMANIFEST&#39;: {&#39;level&#39;: &#39;INFO&#39;},
- &#39;inventory-transfer&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;inventory-bulk-update&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shopify-returns-processor&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shopify-fraud-score-checker&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.modules.main.controllers&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;jobs.service&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.restock&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.services.carriers.amazon_fba&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;applogging.decorators&#39;: {&#39;level&#39;: &#39;INFO&#39;},
- &#39;orders-inventory-allocator&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;applogging.services&#39;: {&#39;level&#39;: &#39;INFO&#39;},
- &#39;inventory-adjuster&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shopify-notify-of-shipment&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.scripts.populate_tracking_status&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.stores.amazon.services.inventory&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.stores.amazon.services.order&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.stores.amazon.services.shipment&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.stores.amazon.services.store&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.core.settings.cache&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;shiphero_app.customers_webhooks.application.enqueuers&#39;: {&#39;level&#39;: &#39;INFO&#39;},
- &#39;shiphero_app.customers_webhooks.domain.services&#39;: {&#39;level&#39;: &#39;INFO&#39;},
- &#39;shiphero_app.factories.purchase_orders&#39;: {&#39;level&#39;: &#39;DEBUG&#39;},
- &#39;boto&#39;: {&#39;level&#39;: &#39;WARNING&#39;},
- &#39;botocore&#39;: {&#39;level&#39;: &#39;WARNING&#39;},
- &#39;boto3&#39;: {&#39;level&#39;: &#39;WARNING&#39;}}</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="The-important-parts">The important parts<a class="anchor-link" href="#The-important-parts">&#182;</a></h4><ul>
-<li>We log to <strong>stdout</strong> by default (then it will be <code>.../var/log/httpd/error_log</code> in AWS cloudwatch) </li>
-<li>Default level is WARNING, but <strong>customized</strong> per namespace (most modules are more verbose)</li>
-<li>Few modules will log to the database (model Logging)</li>
-<li>Filter "request" patches records with request's data (id, url, etc)</li>
-<li>Formatter "short" is <code>"[%(levelname)-8s] [%(request_id)s] [%(thread_id)d] :%(name)s:%(lineno)d: %(message)s"</code></li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Example</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">shiphero_app.core.order</span> <span class="kn">import</span> <span class="n">Order</span>
-
-<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;shiphero_app.core.order&quot;</span><span class="p">)</span>
-
-<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Hi shiphero!&quot;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>ENV: local
-DEBUG: True
-DEBUGGER: False
-BASE_DIR: /home/tin/lab/Shiphero-API
-PYTHONPATH: 
-PYTHONUNBUFFERED: 
-READ_DB: mysql://root:****@shiphero-mysql/mydb
-MASTER_DB: mysql://root:****@shiphero-mysql/mydb
-MONGODB: shiphero-mongo:27017
-LOG_GROUP: /shiphero/prod/catchall/logs
-</pre>
-</div>
-</div>
 
 <div class="output_area">
 
@@ -13804,7 +13798,7 @@ LOG_GROUP: /shiphero/prod/catchall/logs
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>[INFO    ] [] [140424894920512] :shiphero_app.core.order:5: Hi shiphero!
+<pre>2020-10-26 02:02:34,519 [DEBUG]  No logramos lograr ese logro
 </pre>
 </div>
 </div>
@@ -13812,24 +13806,11 @@ LOG_GROUP: /shiphero/prod/catchall/logs
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;this logger has level INFO&quot;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
 </div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h3><p><img src="https://user-images.githubusercontent.com/2355719/91375459-26a98580-e7f1-11ea-9e67-53ea29fb4e5c.png" alt=""></p>
+<p><img src="https://user-images.githubusercontent.com/2355719/91375459-26a98580-e7f1-11ea-9e67-53ea29fb4e5c.png" alt=""></p>
 
 </div>
 </div>
@@ -13837,11 +13818,18 @@ LOG_GROUP: /shiphero/prod/catchall/logs
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Structured-logs-FTW!">Structured logs FTW!<a class="anchor-link" href="#Structured-logs-FTW!">&#182;</a></h1><p>Standard lib's <code>logging</code> module is ugly</p>
+<h1 id="&#191;Pero-no-es-muy-complicado-todo-esto?">&#191;Pero no es muy complicado todo esto?<a class="anchor-link" href="#&#191;Pero-no-es-muy-complicado-todo-esto?">&#182;</a></h1><p><img src="https://i.imgflip.com/4ju828.jpg" alt=""></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>no trivial setup</li>
-<li>Sad defaults</li>
-<li>It isn't even PEP8 compliant!</li>
+<li>La configuración no es trivial</li>
+<li>Los <em>default</em> son malos</li>
+<li>¡Ni siquiera respeta PEP8!</li>
 </ul>
 
 </div>
@@ -13850,8 +13838,9 @@ LOG_GROUP: /shiphero/prod/catchall/logs
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>Structlog</code> is to <code>logging</code> what <code>requests</code> to <code>httplib</code></p>
-<p><img src="https://user-images.githubusercontent.com/2355719/91399775-f8d63800-e814-11ea-8cee-b56b888ebd8b.png" alt=""></p>
+<center>
+<img src="https://user-images.githubusercontent.com/2355719/91399775-f8d63800-e814-11ea-8cee-b56b888ebd8b.png">
+    </center><p><code>Structlog</code> es a <code>logging</code> lo que <code>requests</code> a <code>httplib</code></p>
 <blockquote><p>It makes logging in Python less painful and more powerful by adding structure to your log entries.</p>
 <p>-- <a href="https://structlog.org">https://structlog.org</a></p>
 </blockquote>
@@ -13867,8 +13856,8 @@ LOG_GROUP: /shiphero/prod/catchall/logs
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">structlog</span>
 
 <span class="c1"># drop-in replacement! </span>
-<span class="n">logger</span> <span class="o">=</span> <span class="n">structlog</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span>     <span class="c1"># namespace is __name__</span>
-<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;hi from structlog!&quot;</span><span class="p">)</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">structlog</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span>     
+<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;El oceáno es muy grande y el submarino es muy pequeño&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13885,7 +13874,7 @@ LOG_GROUP: /shiphero/prod/catchall/logs
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>2020-08-27 11:56.15 <span class="ansi-bold">hi from structlog!</span>
+<pre>2020-10-26 11:19.00 <span class="ansi-bold">El oceáno es muy grande y el submarino es muy pequeño</span>
 </pre>
 </div>
 </div>
@@ -13897,7 +13886,7 @@ LOG_GROUP: /shiphero/prod/catchall/logs
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="And-most-of-the-times-we-want-to-log-data-(no-just-strings)">And most of the times we want to log <strong>data</strong> (no just strings)<a class="anchor-link" href="#And-most-of-the-times-we-want-to-log-data-(no-just-strings)">&#182;</a></h3><p>Real examples taken from our code:</p>
+<h3 id="Lo-importante:-La-mayor&#237;a-de-las-veces-necesitamos-registrar-datos">Lo importante: La mayor&#237;a de las veces necesitamos registrar <strong>datos</strong><a class="anchor-link" href="#Lo-importante:-La-mayor&#237;a-de-las-veces-necesitamos-registrar-datos">&#182;</a></h3><p>(Ejemplos reales del código de mi trabajo, permiso)</p>
 
 </div>
 </div>
@@ -13972,7 +13961,7 @@ LOG_GROUP: /shiphero/prod/catchall/logs
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The structlog's way (ie. the pythonic way) is simpler!</p>
+<p>La manera de <code>structlog</code> es la manera <code>pythonica</code>: keyword arguments!</p>
 
 </div>
 </div>
@@ -13982,7 +13971,7 @@ LOG_GROUP: /shiphero/prod/catchall/logs
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;logging data&quot;</span><span class="p">,</span> <span class="n">speaker</span><span class="o">=</span><span class="s2">&quot;tin&quot;</span><span class="p">,</span> <span class="n">team</span><span class="o">=</span><span class="s2">&quot;shelby&quot;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">foo</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;bar&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]})</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Iniciamos conversaciones&quot;</span><span class="p">,</span> <span class="n">interlocutor</span><span class="o">=</span><span class="s2">&quot;FMI&quot;</span><span class="p">,</span> <span class="n">tipo_acuerdo</span><span class="o">=</span><span class="s2">&quot;stand-by&quot;</span><span class="p">,</span> <span class="n">monto</span><span class="o">=</span><span class="mf">52e9</span><span class="p">,</span> <span class="n">moneda</span><span class="o">=</span><span class="s2">&quot;usd&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13999,56 +13988,7 @@ LOG_GROUP: /shiphero/prod/catchall/logs
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>2020-08-27 11:56.22 logging data                   foo={&#39;bar&#39;: [1, 2]} order=1 speaker=tin team=shelby
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Structlog's-processors">Structlog's processors<a class="anchor-link" href="#Structlog's-processors">&#182;</a></h3><p>Structlog unifies the concepts of <code>formatters</code> and <code>filters</code> in <strong>processors</strong>, which is <strong>a pipeline of callables</strong>
-that <strong>transforms</strong>, drop or just uses the <em>event</em> in some way.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">structlog</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span>
-    <span class="n">processors</span><span class="o">=</span><span class="p">[</span>
-        <span class="n">structlog</span><span class="o">.</span><span class="n">stdlib</span><span class="o">.</span><span class="n">add_log_level</span><span class="p">,</span>
-        <span class="n">structlog</span><span class="o">.</span><span class="n">processors</span><span class="o">.</span><span class="n">TimeStamper</span><span class="p">(</span><span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;iso&quot;</span><span class="p">),</span>
-        <span class="n">structlog</span><span class="o">.</span><span class="n">processors</span><span class="o">.</span><span class="n">JSONRenderer</span><span class="p">()</span>
-    <span class="p">]</span>
-<span class="p">)</span>
-
-<span class="n">logger</span> <span class="o">=</span> <span class="n">structlog</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span>
-<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;this is the event&#39;s message&quot;</span><span class="p">,</span> <span class="n">render_format</span><span class="o">=</span><span class="s2">&quot;is JSON&quot;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>{&#34;render_format&#34;: &#34;is JSON&#34;, &#34;event&#34;: &#34;this is the event&#39;s message&#34;, &#34;level&#34;: &#34;info&#34;, &#34;timestamp&#34;: &#34;2020-08-27T04:41:31.245029Z&#34;}
+<pre>2020-10-26 11:19.09 Iniciamos conversaciones       interlocutor=FMI moneda=usd monto=52000000000.0 tipo_acuerdo=stand-by
 </pre>
 </div>
 </div>
@@ -14060,21 +14000,90 @@ that <strong>transforms</strong>, drop or just uses the <em>event</em> in some w
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>JSONRenderer</code> uses <code>json.dumps</code> by default (configurable) but is smart enough</p>
+<p><img src="https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2018/03/28/15222363072573.jpg" alt=""></p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">C</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">&quot;this is what structlog uses&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">structlog</span><span class="o">.</span><span class="n">configure</span>
+</pre></div>
 
-<span class="n">c</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
+    </div>
+</div>
+</div>
+
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Procesadores">Procesadores<a class="anchor-link" href="#Procesadores">&#182;</a></h3><p>En <code>structlog</code> los <code>formatters</code> y <code>filters</code> se unifican en <strong>processors</strong>,</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">structlog</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span>
+    <span class="n">processors</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">structlog</span><span class="o">.</span><span class="n">stdlib</span><span class="o">.</span><span class="n">add_log_level</span><span class="p">,</span>
+        <span class="n">structlog</span><span class="o">.</span><span class="n">processors</span><span class="o">.</span><span class="n">TimeStamper</span><span class="p">(</span><span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;iso&quot;</span><span class="p">),</span>
+        <span class="n">structlog</span><span class="o">.</span><span class="n">processors</span><span class="o">.</span><span class="n">JSONRenderer</span><span class="p">()</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">structlog</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;todas las tormentas juntas&quot;</span><span class="p">,</span> <span class="n">tipo_conferencia</span><span class="o">=</span><span class="s2">&quot;grabada&quot;</span><span class="p">,</span> <span class="n">lira_turca</span><span class="o">=</span><span class="mf">25.3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{&#34;tipo_conferencia&#34;: &#34;grabada&#34;, &#34;lira_turca&#34;: 25.3, &#34;event&#34;: &#34;todas las tormentas juntas&#34;, &#34;level&#34;: &#34;warning&#34;, &#34;timestamp&#34;: &#34;2020-10-26T04:10:34.829984Z&#34;}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>JSONRenderer</code> usa <code>json.dumps</code> by default (configurable) pero es inteligente</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Periodo</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;50 años&quot;</span>   
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">Periodo</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -14084,11 +14093,11 @@ that <strong>transforms</strong>, drop or just uses the <em>event</em> in some w
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">json</span> 
-<span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>  
+<span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>  
 </pre></div>
 
     </div>
@@ -14108,39 +14117,39 @@ that <strong>transforms</strong>, drop or just uses the <em>event</em> in some w
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-18-4d6006a5b739&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-14-b4c9add0615f&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">import</span> json
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>json<span class="ansi-blue-fg">.</span>dumps<span class="ansi-blue-fg">(</span>c<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>json<span class="ansi-blue-fg">.</span>dumps<span class="ansi-blue-fg">(</span>p<span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">/usr/lib/python3.6/json/__init__.py</span> in <span class="ansi-cyan-fg">dumps</span><span class="ansi-blue-fg">(obj, skipkeys, ensure_ascii, check_circular, allow_nan, cls, indent, separators, default, sort_keys, **kw)</span>
+<span class="ansi-green-fg">/usr/lib/python3.7/json/__init__.py</span> in <span class="ansi-cyan-fg">dumps</span><span class="ansi-blue-fg">(obj, skipkeys, ensure_ascii, check_circular, allow_nan, cls, indent, separators, default, sort_keys, **kw)</span>
 <span class="ansi-green-intense-fg ansi-bold">    229</span>         cls <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span> <span class="ansi-green-fg">and</span> indent <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span> <span class="ansi-green-fg">and</span> separators <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span> <span class="ansi-green-fg">and</span>
 <span class="ansi-green-intense-fg ansi-bold">    230</span>         default is None and not sort_keys and not kw):
 <span class="ansi-green-fg">--&gt; 231</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> _default_encoder<span class="ansi-blue-fg">.</span>encode<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    232</span>     <span class="ansi-green-fg">if</span> cls <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">    233</span>         cls <span class="ansi-blue-fg">=</span> JSONEncoder
 
-<span class="ansi-green-fg">/usr/lib/python3.6/json/encoder.py</span> in <span class="ansi-cyan-fg">encode</span><span class="ansi-blue-fg">(self, o)</span>
+<span class="ansi-green-fg">/usr/lib/python3.7/json/encoder.py</span> in <span class="ansi-cyan-fg">encode</span><span class="ansi-blue-fg">(self, o)</span>
 <span class="ansi-green-intense-fg ansi-bold">    197</span>         <span class="ansi-red-fg"># exceptions aren&#39;t as detailed.  The list call should be roughly</span>
 <span class="ansi-green-intense-fg ansi-bold">    198</span>         <span class="ansi-red-fg"># equivalent to the PySequence_Fast that &#39;&#39;.join() would do.</span>
 <span class="ansi-green-fg">--&gt; 199</span><span class="ansi-red-fg">         </span>chunks <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>iterencode<span class="ansi-blue-fg">(</span>o<span class="ansi-blue-fg">,</span> _one_shot<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    200</span>         <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> isinstance<span class="ansi-blue-fg">(</span>chunks<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">(</span>list<span class="ansi-blue-fg">,</span> tuple<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">    201</span>             chunks <span class="ansi-blue-fg">=</span> list<span class="ansi-blue-fg">(</span>chunks<span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">/usr/lib/python3.6/json/encoder.py</span> in <span class="ansi-cyan-fg">iterencode</span><span class="ansi-blue-fg">(self, o, _one_shot)</span>
+<span class="ansi-green-fg">/usr/lib/python3.7/json/encoder.py</span> in <span class="ansi-cyan-fg">iterencode</span><span class="ansi-blue-fg">(self, o, _one_shot)</span>
 <span class="ansi-green-intense-fg ansi-bold">    255</span>                 self<span class="ansi-blue-fg">.</span>key_separator<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>item_separator<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>sort_keys<span class="ansi-blue-fg">,</span>
 <span class="ansi-green-intense-fg ansi-bold">    256</span>                 self.skipkeys, _one_shot)
 <span class="ansi-green-fg">--&gt; 257</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> _iterencode<span class="ansi-blue-fg">(</span>o<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    258</span> 
 <span class="ansi-green-intense-fg ansi-bold">    259</span> def _make_iterencode(markers, _default, _encoder, _indent, _floatstr,
 
-<span class="ansi-green-fg">/usr/lib/python3.6/json/encoder.py</span> in <span class="ansi-cyan-fg">default</span><span class="ansi-blue-fg">(self, o)</span>
+<span class="ansi-green-fg">/usr/lib/python3.7/json/encoder.py</span> in <span class="ansi-cyan-fg">default</span><span class="ansi-blue-fg">(self, o)</span>
+<span class="ansi-green-intense-fg ansi-bold">    177</span> 
 <span class="ansi-green-intense-fg ansi-bold">    178</span>         &#34;&#34;&#34;
-<span class="ansi-green-intense-fg ansi-bold">    179</span>         raise TypeError(&#34;Object of type &#39;%s&#39; is not JSON serializable&#34; %
-<span class="ansi-green-fg">--&gt; 180</span><span class="ansi-red-fg">                         o.__class__.__name__)
-</span><span class="ansi-green-intense-fg ansi-bold">    181</span> 
-<span class="ansi-green-intense-fg ansi-bold">    182</span>     <span class="ansi-green-fg">def</span> encode<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> o<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 179</span><span class="ansi-red-fg">         raise TypeError(f&#39;Object of type {o.__class__.__name__} &#39;
+</span><span class="ansi-green-intense-fg ansi-bold">    180</span>                         f&#39;is not JSON serializable&#39;)
+<span class="ansi-green-intense-fg ansi-bold">    181</span> 
 
-<span class="ansi-red-fg">TypeError</span>: Object of type &#39;C&#39; is not JSON serializable</pre>
+<span class="ansi-red-fg">TypeError</span>: Object of type Periodo is not JSON serializable</pre>
 </div>
 </div>
 
@@ -14150,10 +14159,10 @@ that <strong>transforms</strong>, drop or just uses the <em>event</em> in some w
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;My event&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;el mejor equipo&quot;</span><span class="p">,</span> <span class="n">periodo</span><span class="o">=</span><span class="n">p</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14170,11 +14179,192 @@ that <strong>transforms</strong>, drop or just uses the <em>event</em> in some w
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>{&#34;c&#34;: &#34;this is what structlog uses&#34;, &#34;event&#34;: &#34;My event&#34;, &#34;level&#34;: &#34;info&#34;, &#34;timestamp&#34;: &#34;2020-08-27T04:48:12.776755Z&#34;}
+<pre>{&#34;periodo&#34;: &#34;50 a\u00f1os&#34;, &#34;event&#34;: &#34;el mejor equipo&#34;, &#34;level&#34;: &#34;info&#34;, &#34;timestamp&#34;: &#34;2020-10-26T04:20:58.496938Z&#34;}
 </pre>
 </div>
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">PeriodoReal</span><span class="p">(</span><span class="n">C</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__structlog__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;hasta el 11 de agosto&quot;</span>
+
+<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;gobierno economico&quot;</span><span class="p">,</span> <span class="n">hasta</span><span class="o">=</span><span class="n">PeriodoReal</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{&#34;hasta&#34;: &#34;hasta el 11 de agosto&#34;, &#34;event&#34;: &#34;gobierno economico&#34;, &#34;level&#34;: &#34;info&#34;, &#34;timestamp&#34;: &#34;2020-10-26T04:22:28.040188Z&#34;}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Formatos-de-salida">Formatos de salida<a class="anchor-link" href="#Formatos-de-salida">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>structlog</code> tiene procesadores "amigables" con el desarrollo</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">structlog</span>
+
+<span class="n">structlog</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span> 
+        <span class="n">processors</span><span class="o">=</span><span class="p">[</span> 
+            <span class="n">structlog</span><span class="o">.</span><span class="n">stdlib</span><span class="o">.</span><span class="n">add_log_level</span><span class="p">,</span> 
+            <span class="n">structlog</span><span class="o">.</span><span class="n">processors</span><span class="o">.</span><span class="n">TimeStamper</span><span class="p">(</span><span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M.%S&quot;</span><span class="p">),</span> 
+            <span class="n">structlog</span><span class="o">.</span><span class="n">dev</span><span class="o">.</span><span class="n">ConsoleRenderer</span><span class="p">()</span> 
+        <span class="p">]</span>
+<span class="p">)</span> 
+<span class="n">logger</span> <span class="o">=</span> <span class="n">structlog</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span> 
+
+<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;es todo mentira&quot;</span><span class="p">,</span> <span class="n">tema</span><span class="o">=</span><span class="s2">&quot;autopistas&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2020-10-26 14:40.10 [<span class="ansi-green-intense-fg ansi-bold">info     </span>] <span class="ansi-bold">es todo mentira               </span> <span class="ansi-cyan-fg">tema</span>=<span class="ansi-magenta-fg">autopistas</span>
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="En-producci&#243;n:-json">En producci&#243;n: json<a class="anchor-link" href="#En-producci&#243;n:-json">&#182;</a></h2><ul>
+<li>JSON un formato amigable con humanos, y universal para compartir datos. </li>
+<li>No hace falta regex ni nada para parsear, vienen con estructura y tipo de datos básicos! </li>
+<li>Muchos sistemas habilitan busqueda avanzada</li>
+</ul>
+<p>**Ejemplo de Cloudwatch</p>
+<p><img src="https://user-images.githubusercontent.com/2355719/91386364-3b921300-e809-11ea-9629-70582e05c13e.png" alt=""></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Contextos">Contextos<a class="anchor-link" href="#Contextos">&#182;</a></h2>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> a_module.py
+
+<span class="kn">from</span> <span class="nn">structlog</span> <span class="k">import</span> <span class="n">get_logger</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">get_logger</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">some_function</span><span class="p">():</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;escuchas&quot;</span><span class="p">,</span> <span class="n">tipo</span><span class="o">=</span><span class="s2">&quot;ilegales&quot;</span><span class="p">,</span> <span class="n">respuesta</span><span class="o">=</span><span class="s2">&quot;cuentapropistas&quot;</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Overwriting a_module.py
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">structlog</span>
+<span class="kn">from</span> <span class="nn">a_module</span> <span class="k">import</span> <span class="n">some_function</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span>
+<span class="p">)</span>
+<span class="n">structlog</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span>
+    <span class="n">processors</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">structlog</span><span class="o">.</span><span class="n">processors</span><span class="o">.</span><span class="n">TimeStamper</span><span class="p">(</span><span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;iso&quot;</span><span class="p">),</span>
+        <span class="n">structlog</span><span class="o">.</span><span class="n">processors</span><span class="o">.</span><span class="n">KeyValueRenderer</span><span class="p">(</span>
+            <span class="n">key_order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">,</span> <span class="s2">&quot;event&quot;</span><span class="p">]</span>
+        <span class="p">),</span>
+    <span class="p">],</span>
+    <span class="n">context_class</span><span class="o">=</span><span class="n">structlog</span><span class="o">.</span><span class="n">threadlocal</span><span class="o">.</span><span class="n">wrap_dict</span><span class="p">(</span><span class="nb">dict</span><span class="p">),</span>
+    <span class="n">logger_factory</span><span class="o">=</span><span class="n">structlog</span><span class="o">.</span><span class="n">stdlib</span><span class="o">.</span><span class="n">LoggerFactory</span><span class="p">(),</span>
+<span class="p">)</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
 
@@ -14184,268 +14374,16 @@ that <strong>transforms</strong>, drop or just uses the <em>event</em> in some w
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">C2</span><span class="p">(</span><span class="n">C</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__structlog__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">&quot;this takes precedence!&quot;</span>
-
-<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;My other event&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">C2</span><span class="p">())</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>{&#34;c&#34;: &#34;this takes precedence!&#34;, &#34;event&#34;: &#34;My other event&#34;, &#34;level&#34;: &#34;info&#34;, &#34;timestamp&#34;: &#34;2020-08-27T04:49:24.600562Z&#34;}
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Why-JSON-as-output-format?">Why JSON as output format?<a class="anchor-link" href="#Why-JSON-as-output-format?">&#182;</a></h3><p>Because is a friendly format for both humans and <strong>machines</strong>. It's structured!</p>
-<p><strong>Cloudwatch parses json messages and allows advanced search</strong></p>
-<p><img src="https://user-images.githubusercontent.com/2355719/91386364-3b921300-e809-11ea-9629-70582e05c13e.png" alt=""></p>
-<p>NOTE: Insight's doesn't support this JSON search, but it's easy to match <code>"key": "value"</code> with the LIKE operator (via regex). 
-(<a href="https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#logsV2:logs-insights$3FqueryDetail$3D$257E$2528end$257E0$257Estart$257E-10800$257EtimeType$257E$2527RELATIVE$257Eunit$257E$2527seconds$257EeditorString$257E$2527fields*20*40timestamp*2c*20*40message*0a*7c*20filter*20*40message*20like*20*2fevent*22*3a*20*22push*22*2f*0a*7c*20filter*20*40message*20like*20*2fchannel_advisor*2f*0a*7c*20sort*20*40timestamp*20desc*0a*7c*20limit*2020$257EisLiveTail$257Efalse$257EqueryId$257E$2527f2cab59d-116c-4fe9-b29b-ce0b43efffd0$257Esource$257E$2528$257E$2527*2faws*2felasticbeanstalk*2forder-worker-fifo-prod*2fvar*2flog*2fhttpd*2ferror_log$257E$2527*2faws*2felasticbeanstalk*2forder-fifo-prod-worker*2fvar*2flog*2fhttpd*2ferror_log$2529$2529">Example</a>)</p>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Where-are-structlog's-loggers,-handlers,-levels?">Where are structlog's loggers, handlers, levels?<a class="anchor-link" href="#Where-are-structlog's-loggers,-handlers,-levels?">&#182;</a></h3><p>Our config's uses this</p>
-<div class="highlight"><pre><span></span><span class="n">logger_factory</span><span class="o">=</span><span class="n">structlog</span><span class="o">.</span><span class="n">stdlib</span><span class="o">.</span><span class="n">LoggerFactory</span><span class="p">()</span>
-</pre></div>
-<p>This means the config for the standard logging apply (even our "short" format).</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="n">Mon</span> <span class="n">Aug</span> <span class="mi">24</span> <span class="mi">14</span><span class="p">:</span><span class="mi">41</span><span class="p">:</span><span class="mf">39.512594</span> <span class="mi">2020</span><span class="p">]</span> <span class="p">[:</span><span class="n">error</span><span class="p">]</span> <span class="p">[</span><span class="n">pid</span> <span class="mi">24849</span><span class="p">]</span> <span class="p">[</span><span class="n">INFO</span>    <span class="p">]</span> <span class="p">[</span><span class="mi">3</span><span class="n">d9e8946</span><span class="o">-</span><span class="mi">8914</span><span class="o">-</span><span class="mi">492</span><span class="n">c</span><span class="o">-</span><span class="n">be5f</span><span class="o">-</span><span class="mi">67</span><span class="n">f07bd16251</span><span class="p">]</span> <span class="p">[</span><span class="mi">140552561469184</span><span class="p">]</span> <span class="p">:</span><span class="n">applogging</span><span class="o">.</span><span class="n">services</span><span class="p">:</span><span class="mi">190</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;request_data&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;account_id&quot;</span><span class="p">:</span> <span class="mi">54683</span><span class="p">,</span> <span class="s2">&quot;shop_name&quot;</span><span class="p">:</span> <span class="s2">&quot;ShipHero, Inc&quot;</span><span class="p">,</span> <span class="s2">&quot;ca_account_id&quot;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span> <span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;orders&quot;</span><span class="p">,</span> <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;channel_advisor&quot;</span><span class="p">,</span> <span class="s2">&quot;body&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;order_id&quot;</span><span class="p">:</span> <span class="mi">266612</span><span class="p">}},</span> <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/webhooks&quot;</span><span class="p">,</span> <span class="s2">&quot;queue&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ShipHeroInventoryProcessingV2.fifo&quot;</span><span class="p">,</span> <span class="s2">&quot;fifo&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">},</span> <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;sku&quot;</span><span class="p">:</span> <span class="s2">&quot;productodefran&quot;</span><span class="p">,</span> <span class="s2">&quot;account_id&quot;</span><span class="p">:</span> <span class="mi">54683</span><span class="p">,</span> <span class="s2">&quot;warehouse_id&quot;</span><span class="p">:</span> <span class="mi">62247</span><span class="p">,</span> <span class="s2">&quot;enqueued_count&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;[allocation]LineItem(409374324).process_for_shipment&quot;</span><span class="p">,</span> <span class="s2">&quot;skip_adjust_inventory_allocation&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span> <span class="s2">&quot;_metadata&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;start_request&quot;</span><span class="p">:</span> <span class="s2">&quot;3d9e8946-8914-492c-be5f-67f07bd16251&quot;</span><span class="p">,</span> <span class="s2">&quot;from_request&quot;</span><span class="p">:</span> <span class="s2">&quot;3d9e8946-8914-492c-be5f-67f07bd16251&quot;</span><span class="p">,</span> <span class="s2">&quot;is_origin&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span> <span class="s2">&quot;group&quot;</span><span class="p">:</span> <span class="s2">&quot;54683-62247-1&quot;</span><span class="p">,</span> <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;85439-54683-62247-1-productodefran&quot;</span><span class="p">}},</span> <span class="s2">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;push&quot;</span><span class="p">,</span> <span class="s2">&quot;logger&quot;</span><span class="p">:</span> <span class="s2">&quot;applogging.services&quot;</span><span class="p">,</span> <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;info&quot;</span><span class="p">,</span> <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-08-24T14:41:39.512385Z&quot;</span><span class="p">}</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>(happily, Cloudwatch understands that only the last part of the raw message is JSON)</p>
-
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Our-helper">Our helper<a class="anchor-link" href="#Our-helper">&#182;</a></h2><p><code>structlogged</code> is a decorator that emits an event <strong>before</strong> (<code>event="start"</code>) and <strong>after</strong> (<code>event="end"</code>) a call</p>
-<ul>
-<li>request's context (id, path, etc.)</li>
-<li>function/method name</li>
-<li>arguments</li>
-<li>result</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">applogging.decorators</span> <span class="kn">import</span> <span class="n">struct_logged</span>
-<span class="kn">import</span> <span class="nn">settings</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>ENV: local
-DEBUG: True
-DEBUGGER: False
-BASE_DIR: /home/tin/lab/Shiphero-API
-PYTHONPATH: 
-PYTHONUNBUFFERED: 
-READ_DB: mysql://root:****@shiphero-mysql/mydb
-MASTER_DB: mysql://root:****@shiphero-mysql/mydb
-MONGODB: shiphero-mongo:27017
-LOG_GROUP: /shiphero/prod/catchall/logs
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nd">@struct_logged</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">example_func</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mi">42</span>
-
-<span class="n">example_func</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">bar</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>[INFO    ] [] [139937697191744] :applogging.decorators:190: {&#34;call_id&#34;: &#34;33d00eca-8a89-4e0d-897b-70a311bffb48&#34;, &#34;func_args&#34;: [&#34;.&#34;], &#34;func_kwargs&#34;: {&#34;bar&#34;: 12}, &#34;request_data&#34;: &#34;n/a&#34;, &#34;path&#34;: &#34;n/a&#34;, &#34;func&#34;: &#34;example_func&#34;, &#34;event&#34;: &#34;start&#34;, &#34;logger&#34;: &#34;applogging.decorators&#34;, &#34;level&#34;: &#34;info&#34;, &#34;timestamp&#34;: &#34;2020-08-27T05:43:55.045067Z&#34;}
-[INFO    ] [] [139937697191744] :applogging.decorators:190: {&#34;call_id&#34;: &#34;33d00eca-8a89-4e0d-897b-70a311bffb48&#34;, &#34;func_args&#34;: [&#34;.&#34;], &#34;func_kwargs&#34;: {&#34;bar&#34;: 12}, &#34;request_data&#34;: &#34;n/a&#34;, &#34;path&#34;: &#34;n/a&#34;, &#34;func&#34;: &#34;example_func&#34;, &#34;result&#34;: 42, &#34;event&#34;: &#34;end&#34;, &#34;logger&#34;: &#34;applogging.decorators&#34;, &#34;level&#34;: &#34;info&#34;, &#34;timestamp&#34;: &#34;2020-08-27T05:43:55.047812Z&#34;}
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[3]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>42</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>As we also log event="push" (tasks to sqs) for some queues passing the <strong>request's id as metadata</strong>, then we could find the the "start" event originated in response to that task.</p>
-<p>This chain of pushes/responses allows us to <strong>visualize the tree</strong> of our asynchronous computation</p>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="https://github.com/Shiphero/events_tree">https://github.com/Shiphero/events_tree</a></p>
-<p><img src="https://user-images.githubusercontent.com/2355719/91391337-04733000-e810-11ea-927a-5bdceaaea8de.png" alt=""></p>
-<p>It's a (very early) work in progress. <strong>Help is welcome!</strong></p>
-
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Set-a-context-and-be-happy">Set a context and be happy<a class="anchor-link" href="#Set-a-context-and-be-happy">&#182;</a></h2><p>Context allows a cleaner code: don't need to pass objects just to log them</p>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> a_module.py
-
-<span class="kn">from</span> <span class="nn">structlog</span> <span class="kn">import</span> <span class="n">get_logger</span>
-
-<span class="n">logger</span> <span class="o">=</span> <span class="n">get_logger</span><span class="p">()</span>
-
-<span class="k">def</span> <span class="nf">some_function</span><span class="p">():</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;user did something&quot;</span><span class="p">,</span> <span class="n">something</span><span class="o">=</span><span class="s2">&quot;shot_in_foot&quot;</span><span class="p">)</span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Writing a_module.py
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">structlog</span>
-<span class="kn">from</span> <span class="nn">a_module</span> <span class="kn">import</span> <span class="n">some_function</span>
-<span class="n">logger</span> <span class="o">=</span> <span class="n">structlog</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span>
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">log</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>     <span class="c1"># set a new context. any futher event from the logger will get x for free</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
-    <span class="n">log</span> <span class="o">=</span> <span class="n">log</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">result</span><span class="o">=</span><span class="n">result</span><span class="p">)</span>   <span class="c1"># update the context</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">entrevista</span><span class="p">():</span>
+    <span class="n">log</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">periodista</span><span class="o">=</span><span class="s2">&quot;amigo&quot;</span><span class="p">)</span>     <span class="c1"># set a new context. any futher event from the logger will get x for free</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;inicio entrevista&quot;</span><span class="p">)</span>
+    <span class="n">log</span> <span class="o">=</span> <span class="n">log</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">sobre</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>   <span class="c1"># update the context</span>
     <span class="n">some_function</span><span class="p">()</span>                 
     
-    <span class="n">log</span> <span class="o">=</span> <span class="n">log</span><span class="o">.</span><span class="n">unbind</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
-    <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;end main function&quot;</span><span class="p">)</span>
+    <span class="n">log</span> <span class="o">=</span> <span class="n">log</span><span class="o">.</span><span class="n">unbind</span><span class="p">(</span><span class="s2">&quot;periodista&quot;</span><span class="p">)</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;final entrevista&quot;</span><span class="p">)</span>
     
-<span class="n">main</span><span class="p">()</span>
+<span class="n">entrevista</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -14461,9 +14399,10 @@ LOG_GROUP: /shiphero/prod/catchall/logs
     <div class="prompt"></div>
 
 
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>[ERROR   ] [] [139937697191744] :a_module:7: {&#34;x&#34;: 42, &#34;result&#34;: 4, &#34;something&#34;: &#34;shot_in_foot&#34;, &#34;event&#34;: &#34;user did something&#34;, &#34;logger&#34;: &#34;a_module&#34;, &#34;level&#34;: &#34;error&#34;, &#34;timestamp&#34;: &#34;2020-08-27T06:12:26.951835Z&#34;}
-[WARNING ] [] [139937697191744] :__main__:12: {&#34;result&#34;: 4, &#34;event&#34;: &#34;end main function&#34;, &#34;logger&#34;: &#34;__main__&#34;, &#34;level&#34;: &#34;warning&#34;, &#34;timestamp&#34;: &#34;2020-08-27T06:12:26.953138Z&#34;}
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>timestamp=&#39;2020-10-26T04:58:01.123994Z&#39; event=&#39;inicio entrevista&#39; periodista=&#39;amigo&#39;
+timestamp=&#39;2020-10-26T04:58:01.125263Z&#39; event=&#39;escuchas&#39; periodista=&#39;amigo&#39; sobre=4 tipo=&#39;ilegales&#39; respuesta=&#39;cuentapropistas&#39;
+timestamp=&#39;2020-10-26T04:58:01.126142Z&#39; event=&#39;final entrevista&#39; sobre=4
 </pre>
 </div>
 </div>
@@ -14475,56 +14414,106 @@ LOG_GROUP: /shiphero/prod/catchall/logs
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Some-final-comments-/-tips">Some final comments / tips<a class="anchor-link" href="#Some-final-comments-/-tips">&#182;</a></h2><ul>
-<li>We log a lot but not always effectively. </li>
-<li>Remember it's cheap but not free (I'm looking at you <code>RequestFilter</code>. )  </li>
-<li>Structlog is nice, powerful and easy: use it!</li>
-<li>We should revisit our config: <code>logger.debug()</code> shouldn't be for productive environments</li>
-<li>Is <code>DatabaseHandler</code> needed at all?</li>
-<li>Use a mask and stay safe! </li>
+<h2 id="Consejos-/-Buenas-Pr&#225;cticas">Consejos / Buenas Pr&#225;cticas<a class="anchor-link" href="#Consejos-/-Buenas-Pr&#225;cticas">&#182;</a></h2>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>A veces loggeamos mucho pero no siempre efectivamente.</p>
+<ul>
+<li>Loggear transiciones de estado</li>
+<li>Mientras más "raro" el evento, mayor nivel y detalle </li>
+<li>¡Quitar ruido!  </li>
+</ul>
+</li>
 </ul>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">DB_</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>Es barato pero no gratis.</p>
+<ul>
+<li>Usar bien los niveles y filtros.  </li>
+<li>No duplicar handlers </li>
+<li>Delegar todo lo que se pueda a la "infra" (storage, rotación de archivos)</li>
+</ul>
+</li>
+</ul>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>Además de timestamp, agregar info de trazabilidad: request_id, thread_id, user_id, etc.</p>
+<ul>
+<li>Timestamps en UTC</li>
+<li>Tokens de trazabilidad únicos</li>
+</ul>
+</li>
+</ul>
 
-    </div>
 </div>
 </div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>Structlog es fácil, poderoso y pythónico: úsenlo!</p>
+<ul>
+<li>también miren Loguru</li>
+</ul>
+</li>
+</ul>
 
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>Configuración</p>
+<ul>
+<li>Tan tarde como se pueda, antes de que comience a ejecutarse <strong>tu código</strong></li>
+<li>Procurá que se haga una única vez</li>
+<li>Adaptarse a convenciones del framework (si existen)</li>
+<li>Podés reconfigurar loggers de terceros</li>
+<li>Structlog justo despues de logging estándar,  via <code>stdlib.LoggerFactory</code></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Usen barbijo y cuídense</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Caricias-significativas-con-el-codo">Caricias significativas con el codo<a class="anchor-link" href="#Caricias-significativas-con-el-codo">&#182;</a></h3><p><img src="https://user-images.githubusercontent.com/2355719/97137378-70044b80-1734-11eb-90d8-4209b204fc1d.png" alt="image"></p>
+
+</div>
+</div>
 </div></section></section>
 </div>
 </div>
